@@ -5,20 +5,28 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Table(name = "Employee")
 public class Employee {
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
     private String name;
     private Integer age;
     private String gender;
     private Integer salary;
-    private Long companyId;
-
+    private int companyId;
+//    @ManyToOne
+//    @JoinColumn(name = "companyId")
+//    private Company company;
     public Employee() {
     }
-
-    public Employee(String name, Integer age, String gender, Integer salary, Long companyId) {
+//    public void setCompany(Company company){
+//        this.company = company;
+//    }
+//    public Company getCompany(){
+//        return this.company;
+//    }
+    public Employee(int id,String name, Integer age, String gender, Integer salary, int companyId) {
         this.name = name;
         this.age = age;
         this.gender = gender;
@@ -26,11 +34,11 @@ public class Employee {
         this.companyId = companyId;
     }
 
-    public Long getCompanyId() {
+    public int getCompanyId() {
         return companyId;
     }
 
-    public void setCompanyId(Long companyId) {
+    public void setCompanyId(int companyId) {
         this.companyId = companyId;
     }
 
@@ -42,7 +50,7 @@ public class Employee {
         this.salary = salary;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
